@@ -4,6 +4,10 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 
 namespace RJ_App.iOS
 {
@@ -22,8 +26,12 @@ namespace RJ_App.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            AppCenter.Start("ios=56636c7b-03c7-4d85-93da-8226468eecb2;", typeof(Analytics), typeof(Crashes));
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            
 
             return base.FinishedLaunching(app, options);
         }
